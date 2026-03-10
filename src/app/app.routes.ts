@@ -6,7 +6,7 @@ import { AccountManagerPage} from './pages/account-manager-page/account-manager-
 import { RecipeCalculatorPage } from './pages/recipe-calculator-page/recipe-calculator-page';
 import { RecipeManagerPage } from './pages/recipe-manager-page/recipe-manager-page';
 import { UsersManagerPage } from './pages/users-manager-page/users-manager-page';
-import { IngredientManagerPage} from './pages/ingredient-manager-page/ingredient-manager-page';
+import { IngredientsManagerPage} from './pages/ingredient-manager-page/ingredient-manager-page';
 import { AboutPage } from './pages/about-page/about-page';
 import {LegalPage} from './pages/legal-page/legal-page';
 export const routes: Routes = [
@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'recipe-manager', component: RecipeManagerPage},
   // Admin / gestion
   { path: 'users-manager', component: UsersManagerPage },
-  { path: 'ingredient-manager', component: IngredientManagerPage },
+  { path: 'ingredient-manager', component: IngredientsManagerPage },
   // Divers
   { path: 'about', component: AboutPage },
   { path: 'legal', component: LegalPage },
