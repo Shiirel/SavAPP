@@ -44,7 +44,7 @@
                 </td>
               }
             </tr>
-          }
+
           @if (ingredientSelectionne?.id === 0) {
             <tr class="table-info">
               <td>NEW</td>
@@ -63,7 +63,7 @@
             </tr>
           }
         <!-- Message affiché si problème accès API -->
-        @empty {
+          } @empty {
           <tr>
             <td colspan="6" class="text-center text-muted py-4">
               <i class="bi bi-exclamation-triangle"></i>
