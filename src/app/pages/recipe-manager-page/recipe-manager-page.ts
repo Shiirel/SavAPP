@@ -2,33 +2,71 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Recette } from '../../models/recette.model';
 import { RecetteService } from '../../services/recette.service';
-import {FormsModule} from '@angular/forms';
-
 @Component({
-  selector: 'app-recipe-manager-page',
-  imports: [CommonModule, FormsModule],
-  templateUrl: './recipe-manager-page.html',
-  styleUrl: './recipe-manager-page.css',
+  selector: 'app-recettes-manager-page',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './recettes-manager-page.html',
+  styleUrl: './recettes-manager-page.css'
 })
-export class RecipeManagerPage {
+export class RecettesManagerPage implements OnInit {
   public recettes: Recette[] = [];
-// Objet temporaire pour l'ajout ou la modification
-  public recetteSelectionne: Recette | null = null;
   constructor(private recetteService: RecetteService) {}
   ngOnInit(): void {
-    this.getRecette();
+    this.chargerRecettes();
   }
-  getRecette(): void {
+  chargerRecettes(): void {
     this.recetteService.getRecettes().subscribe({
       next: (data) => this.recettes = data,
-      error: (err) => console.error("Erreur API : ", err)
+      error: (err) => console.error("Erreur API", err)
     });
   }
-//   /** Préparer l'ajout d'un nouvel ingrédient (ligne vide) */
+  supprimerRecette(id: number): void {
+    if (confirm("Supprimer cette recette ?")) {
+      this.recetteService.deleteRecette(id).subscribe(() =>
+        this.chargerRecettes());
+    }
+  }
+}
+
+
+
+
+
+// import { CommonModule } from '@angular/common';
+// import { Component, OnInit } from '@angular/core';
+// import { Recette } from '../../models/recette.model';
+// import { RecetteService } from '../../services/recette.service';
+// import {FormsModule} from '@angular/forms';
+// import {Ingredient} from '../../models/ingredient.model';
+//
+// @Component({
+//   selector: 'app-recipe-manager-page',
+//   imports: [CommonModule, FormsModule],
+//   templateUrl: './recipe-manager-page.html',
+//   styleUrl: './recipe-manager-page.css',
+// })
+// export class RecipeManagerPage implements OnInit {
+//   public recettes: Recette[] = [];
+//   public recetteSelectionne: Recette | null = null;
+//
+//   constructor(private recetteService: RecetteService) {}
+//   ngOnInit(): void {
+//     this.getRecette();
+//   }
+//
+//   getRecette(): void {
+//     this.recetteService.getRecettes().subscribe({
+//       next: (data) => this.recettes = data,
+//       error: (err) => console.error("Erreur API : ", err)
+//     });
+//   }
+//
+//   /** Préparer l'ajout d'une nouvelle recette (ligne vide) */
 //   creerNouvelleRecette(): void {
 //     this.recetteSelectionne = {
 //       id: 0, titre: '', description: '', surgraissage: 0, apportEnEau: 0,
-//       avecSoude: true, concentrationAlcali: 0, qteAlcali: 0,
+//       avecSoude: true, concentrationAlcalin: 0, qteAlcalin: 0
 //     };
 //   }
 //   /** Lancer l'édition d'une ligne existante */
@@ -52,10 +90,10 @@ export class RecipeManagerPage {
 //   /** Supprimer un ingrédient */
 //   deleteRecette(id: number): void {
 //     if (confirm("Supprimer cet ingrédient ?")) {
-//       this.recetteService.deleteIngredient(id).subscribe(() =>
-//         this.getRecettes());
+//       this.recetteService.deleteRecette(id).subscribe(() =>
+//         this.getRecette());
 //     }
 //   }
-
-
-}
+//
+//
+// }

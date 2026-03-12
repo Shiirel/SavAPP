@@ -5,7 +5,7 @@ import { IngredientService } from '../../services/ingredient.service';
 import {FormsModule} from '@angular/forms';
 @Component({
   selector: 'app-ingredients-manager-page',
-  imports: [CommonModule, FormsModule], // AJOUTER FormsModule pour le [(ngModel)]
+  imports: [CommonModule, FormsModule],
   templateUrl: './ingredient-manager-page.html',
   styleUrl: './ingredient-manager-page.css',
 })
