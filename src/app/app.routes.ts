@@ -9,6 +9,8 @@ import { UsersManagerPage } from './pages/users-manager-page/users-manager-page'
 import { IngredientsManagerPage} from './pages/ingredient-manager-page/ingredient-manager-page';
 import { AboutPage } from './pages/about-page/about-page';
 import {LegalPage} from './pages/legal-page/legal-page';
+import {LegalNoticePage} from './pages/legal-notice-page/legal-notice-page';
+
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomePage },
@@ -28,4 +30,6 @@ export const routes: Routes = [
   { path: 'legal', component: LegalPage },
   // Fallback
   { path: '**', redirectTo: 'home' },
+  // Mentions légales :
+  {path: "legal-notice", component: LegalNoticePage},
 ];

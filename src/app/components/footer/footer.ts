@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterLinkActive} from '@angular/router';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-footer',
   imports: [RouterLink, RouterLinkActive],
@@ -8,5 +7,4 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
   styleUrl: './footer.css',
 })
 export class Footer {
-
 }
