@@ -21,19 +21,27 @@
                 <span class="fw-bold">{{ recette.apportEnEau }} g</span>
               </li>
             </ul>
-            <div class="d-flex justify-content-between mt-auto">
+            <!-- Affichage du graphe radar : -->
+            <div class="chart-container mb-3" style="position: relative; height:400px;">
+              <canvas [id]="'chart-' + recette.id"></canvas>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="mt-4 d-flex justify-content-between mt-auto">
               <button class="btn btn-outline-primary btn-sm"
                       data-bs-toggle="modal"
                       data-bs-target="#modalDetails"
-                      (click)="ouvrirModale(recette)">Détails
+                      (click)="ouvrirModale(recette)">
+                Détails
               </button>
               <button class="btn btn-outline-danger btn-sm"
-                      (click)="supprimerRecette(recette.id)">Supprimer
+                      (click)="supprimerRecette(recette.id)">
+                Supprimer
               </button>
             </div>
           </div>
+          </div>
         </div>
-      </div>
     }
   </div>
 <!-- Code du modal : -->
